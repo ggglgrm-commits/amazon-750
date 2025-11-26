@@ -1,0 +1,50 @@
+:root{
+  --bg: #ffffff;
+  --text: #0b1220;
+  --muted: #6b7280;
+  --btn-bg: #0057e7;
+  --btn-text: #ffffff;
+  --btn-shadow: rgba(0,87,231,0.18);
+}
+*{box-sizing:border-box}
+body{margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;}
+.container{max-width:900px; margin:0 auto; padding:24px;}
+.page{min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; padding:28px 12px;}
+.hero{display:flex; flex-direction:column; align-items:center; text-align:center; gap:18px; width:100%;}
+.hero-image{max-width:560px; width:100%; height:auto; border-radius:8px; box-shadow: 0 8px 24px rgba(11,18,32,0.06);}
+.headline{font-size:28px; margin:0; font-weight:800; letter-spacing:0.6px; color:var(--text); text-transform:uppercase;}
+.subhead{margin:0; color:var(--muted); font-size:14px;}
+.instruction{margin:6px 0 0; color:var(--text); max-width:720px;}
+.note{display:none;}
+
+.cta{display:inline-block; margin-top:12px; padding:14px 28px; background:var(--btn-bg); color:var(--btn-text); text-decoration:none; border-radius:10px; font-weight:700; box-shadow:0 8px 20px var(--btn-shadow); outline: none; border: none;}
+.cta:focus{box-shadow:0 0 0 4px rgba(0,87,231,0.12);}
+/* gentle pulse animation */
+@keyframes pulse {
+  0%{ transform: translateY(0) scale(1); box-shadow: 0 8px 20px var(--btn-shadow); }
+  50%{ transform: translateY(-3px) scale(1.02); box-shadow: 0 14px 34px rgba(0,87,231,0.22); }
+  100%{ transform: translateY(0) scale(1); box-shadow: 0 8px 20px var(--btn-shadow); }
+}
+.cta{animation: pulse 2.2s ease-in-out infinite;}
+
+.site-footer{width:100%; border-top:1px solid #f1f1f1; padding:16px 0; margin-top:18px;}
+.footer-inner{max-width:900px; margin:0 auto; padding:0 24px; text-align:center;}
+.disclaimer{font-size:13px; color:var(--muted); margin:0;}
+
+/* Responsive */
+@media (min-width:1000px){
+  .hero{gap:22px;}
+  .headline{font-size:34px;}
+  .hero-image{max-width:720px;}
+  .note{display:none;}
+}
+
+@media (max-width:720px){
+  .container{padding:18px;}
+  .headline{font-size:20px;}
+  .instruction{font-size:15px; padding:0 8px;}
+  .cta{width:90%; max-width:360px; padding:12px 16px;}
+  .site-footer{padding:12px 0;}
+  .footer-inner{padding:0 12px; text-align:center;}
+  .note{display:block; color:var(--muted); font-size:13px; margin-top:8px;}
+}
